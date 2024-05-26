@@ -1,0 +1,20 @@
+parameters:
+
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+
+  Oosaulenko\MediaBundle\Controller\MediaController: ~
+  Oosaulenko\MediaBundle\Controller\ApiController: ~
+
+  Oosaulenko\MediaBundle\Repository\MediaRepositoryInterface:
+    class: Oosaulenko\MediaBundle\Repository\MediaRepository
+
+  Oosaulenko\MediaBundle\Utilities\FileUploaderInterface:
+    class: Oosaulenko\MediaBundle\Utilities\FileUploader
+
+  Oosaulenko\MediaBundle\Service\MediaServiceInterface:
+    class: Oosaulenko\MediaBundle\Service\MediaService
+
+  Oosaulenko\MediaBundle\Twig\MediaExtension: ~

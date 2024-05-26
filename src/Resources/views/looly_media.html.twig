@@ -1,0 +1,12 @@
+<picture>
+    {% if variations.desktop is defined %}
+        <source srcset="/{{ variations.desktop }}" media="(min-width: 1024px)">
+    {% endif %}
+    {% if variations.tablet is defined %}
+        <source srcset="/{{ variations.tablet }}" media="(min-width: 768px)">
+    {% endif %}
+    {% if variations.mobile is defined %}
+        <source srcset="/{{ variations.mobile }}" media="(max-width: 767px)">
+    {% endif %}
+    <img src="/{{ media.folder }}{{ media.name }}" alt="{{ media.name }}">
+</picture>

@@ -1,0 +1,31 @@
+{% extends '@EasyAdmin/layout.html.twig' %}
+
+{% block page_title %}{{ 'title'|trans|striptags|raw }}{% endblock %}
+
+{% block main %}
+    <div class="l-media-list is-load"></div>
+{% endblock %}
+
+{% block page_actions %}
+    <a class="actionUploadNewMedia btn btn-primary" href="{{ ea_url().setRoute('oosaulenko_media_upload') }}">
+        <span class="action-label">Upload</span>
+    </a>
+{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body_class %}{{- parent() -}} ea-content-width-full easy-media-admin{% endblock %}
+
+{# styles #}
+{% block head_stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/oosaulenkomedia/css/manager.css') }}" type="text/css">
+{% endblock %}
+
+{# scripts #}
+{% block body_javascript %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/oosaulenkomedia/js/media-bundle.js') }}"></script>
+{% endblock %}

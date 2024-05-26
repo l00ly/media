@@ -1,0 +1,24 @@
+{
+    "name": "oosaulenko/media-bundle",
+    "type": "symfony-bundle",
+    "description": "Media bundle for Symfony",
+    "keywords": ["symfony", "media", "bundle"],
+    "version": "0.0.1",
+    "require": {
+        "symfony/framework-bundle": "^7.0",
+        "intervention/image": "^3.6",
+        "ext-gd": "*"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Oosaulenko\\MediaBundle\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Oleh Osaulenko",
+            "email": "o.v.osaulenko@gmail.com"
+        }
+    ]
+}

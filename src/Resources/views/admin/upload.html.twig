@@ -1,0 +1,31 @@
+{% extends '@EasyAdmin/layout.html.twig' %}
+
+{% block page_title %}{{ title }}{% endblock %}
+
+{% block main %}
+    {{ form_start(form, {'attr' : {'novalidate' : '', 'class' : 'form-validation'}}) }}
+
+    {{ form_widget(form) }}
+
+    {{ form_end(form, {'render_rest': false}) }}
+{% endblock %}
+
+{% block page_actions %}{% endblock %}
+
+{% block body %}
+    {{ parent() }}
+{% endblock %}
+
+{% block body_class %}{{- parent() -}} ea-content-width-full easy-media-admin{% endblock %}
+
+{# styles #}
+{% block head_stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/oosaulenkomedia/css/manager.css') }}" type="text/css">
+{% endblock %}
+
+{# scripts #}
+{% block body_javascript %}
+    {{ parent() }}
+    <script src="{{ asset('bundles/oosaulenkomedia/js/media-bundle.js') }}"></script>
+{% endblock %}
