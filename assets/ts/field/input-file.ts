@@ -17,8 +17,6 @@ const handlerUpdateForm = (card: HTMLElement) => {
 };
 
 const handlerInitFileFields = () => {
-    console.log('init fields');
-
     const uploadMediaInputsFiles = document.querySelectorAll('.l-media-field-input-file');
     uploadMediaInputsFiles.forEach((input) => {
         if (!input.classList.contains('is-init')) {

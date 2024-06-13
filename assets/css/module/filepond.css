@@ -1199,3 +1199,12 @@
     margin-left: 0.1875em;
 }
 
+.l-media-modal {
+    .l-media-quick_upload {
+        height: 76px!important;
+    }
+
+    .filepond--list-scroller {
+        display: none!important;
+    }
+}

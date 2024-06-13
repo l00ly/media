@@ -1202,6 +1202,15 @@
     margin-left: 0.1875em;
 }
 
+.l-media-modal {
+    .l-media-quick_upload {
+        height: 76px!important;
+    }
+
+    .filepond--list-scroller {
+        display: none!important;
+    }
+}
 
 /*!*****************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./assets/css/manager.css ***!
@@ -1213,6 +1222,7 @@
   padding: 20px;
   border-radius: 16px;
   overflow-y: scroll;
+  position: relative;
 }
 
 .l-media-field-choice-file-interface {
@@ -1269,6 +1279,26 @@
   justify-content: center;
   background-color: rgba(255, 255, 255, 0.5);
 }
+.l-media-list .l-media-list-wrapper .l-media-item .l-media-actions .btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 0;
+  box-shadow: none;
+}
+.l-media-list .l-media-list-wrapper .l-media-item .l-media-actions .btn--select {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 700;
+}
+.l-media-list .l-media-list-wrapper .l-media-item .l-media-actions .btn--select:before {
+  content: "\f00c";
+}
+.l-media-list .l-media-list-wrapper .l-media-item .l-media-actions .btn--remove {
+  font-family: "Font Awesome 6 Free";
+}
+.l-media-list .l-media-list-wrapper .l-media-item .l-media-actions .btn--remove:before {
+  content: "\f2ed";
+}
 .l-media-list .l-media-list-wrapper .l-media-item:hover .l-media-actions {
   opacity: 1;
   visibility: visible;
@@ -1305,6 +1335,20 @@ body.ea-dark-scheme .l-media-list .l-media-list-wrapper .l-media-item {
   color: red;
   line-height: 1;
   font-size: 20px;
+}
+
+.small-loading {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  z-index: 100;
+  background-image: url("data:image/svg+xml,%3Csvg version=%271.1%27 id=%27loader-1%27 xmlns=%27http://www.w3.org/2000/svg%27 xmlns:xlink=%27http://www.w3.org/1999/xlink%27 x=%270px%27 y=%270px%27 width=%2740px%27 height=%2740px%27 viewBox=%270 0 50 50%27 style=%27enable-background:new 0 0 50 50;%27 xml:space=%27preserve%27%3E%3Cpath fill=%27%23000%27 d=%27M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z%27%3E%3CanimateTransform attributeType=%27xml%27 attributeName=%27transform%27 type=%27rotate%27 from=%270 25 25%27 to=%27360 25 25%27 dur=%270.6s%27 repeatCount=%27indefinite%27/%3E%3C/path%3E%3C/svg%3E");
+  opacity: 0;
+  visibility: hidden;
+}
+.small-loading.is-active {
+  opacity: 1;
+  visibility: visible;
 }
 /*!**************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./node_modules/filepond/dist/filepond.min.css ***!

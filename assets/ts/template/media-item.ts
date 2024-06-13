@@ -4,7 +4,7 @@ export const mediaItem = (item, type: string = 'delete') => {
             <div class="l-media-item">
                 <img src="/${item.folder}${item.name}" alt="${item.name}" />
                 <div class="l-media-actions">
-                     <button class="actionDeleteMedia btn btn-danger" data-id="${item.id}">Delete</button>
+                     <button class="actionDeleteMedia btn btn-danger btn--remove" data-id="${item.id}"></button>
                 </div>
             </div>
         `;
@@ -15,7 +15,7 @@ export const mediaItem = (item, type: string = 'delete') => {
             <div class="l-media-item">
                 <img src="/${item.folder}${item.name}" alt="${item.name}" />
                 <div class="l-media-actions">
-                    <button class="actionSelectMedia btn btn-primary" data-id="${item.id}">Select</button>
+                    <button class="actionSelectMedia btn btn-primary btn--select" data-id="${item.id}"></button>
                 </div>
             </div>
         `;
