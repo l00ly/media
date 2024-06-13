@@ -5,16 +5,16 @@ services:
     autowire: true
     autoconfigure: true
 
-  L00ly\MediaBundle\Controller\MediaController: ~
-  L00ly\MediaBundle\Controller\ApiController: ~
+  Looly\Media\Controller\MediaController: ~
+  Looly\Media\Controller\ApiController: ~
 
-  L00ly\MediaBundle\Repository\MediaRepositoryInterface:
-    class: L00ly\MediaBundle\Repository\MediaRepository
+  Looly\Media\Repository\MediaRepositoryInterface:
+    class: Looly\Media\Repository\MediaRepository
 
-  L00ly\MediaBundle\Utilities\FileUploaderInterface:
-    class: L00ly\MediaBundle\Utilities\FileUploader
+  Looly\Media\Utilities\FileUploaderInterface:
+    class: Looly\Media\Utilities\FileUploader
 
-  L00ly\MediaBundle\Service\MediaServiceInterface:
-    class: L00ly\MediaBundle\Service\MediaService
+  Looly\Media\Service\MediaServiceInterface:
+    class: Looly\Media\Service\MediaService
 
-  L00ly\MediaBundle\Twig\MediaExtension: ~
+  Looly\Media\Twig\MediaExtension: ~

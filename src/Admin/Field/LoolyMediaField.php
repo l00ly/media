@@ -1,6 +1,6 @@
 <?php
 
-namespace L00ly\MediaBundle\Admin\Field;
+namespace Looly\Media\Admin\Field;
 
 use EasyCorp\Bundle\EasyAdminBundle\Contracts\Field\FieldInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FieldTrait;
