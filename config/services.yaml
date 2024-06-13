@@ -5,16 +5,16 @@ services:
     autowire: true
     autoconfigure: true
 
-  Oosaulenko\MediaBundle\Controller\MediaController: ~
-  Oosaulenko\MediaBundle\Controller\ApiController: ~
+  L00ly\MediaBundle\Controller\MediaController: ~
+  L00ly\MediaBundle\Controller\ApiController: ~
 
-  Oosaulenko\MediaBundle\Repository\MediaRepositoryInterface:
-    class: Oosaulenko\MediaBundle\Repository\MediaRepository
+  L00ly\MediaBundle\Repository\MediaRepositoryInterface:
+    class: L00ly\MediaBundle\Repository\MediaRepository
 
-  Oosaulenko\MediaBundle\Utilities\FileUploaderInterface:
-    class: Oosaulenko\MediaBundle\Utilities\FileUploader
+  L00ly\MediaBundle\Utilities\FileUploaderInterface:
+    class: L00ly\MediaBundle\Utilities\FileUploader
 
-  Oosaulenko\MediaBundle\Service\MediaServiceInterface:
-    class: Oosaulenko\MediaBundle\Service\MediaService
+  L00ly\MediaBundle\Service\MediaServiceInterface:
+    class: L00ly\MediaBundle\Service\MediaService
 
-  Oosaulenko\MediaBundle\Twig\MediaExtension: ~
+  L00ly\MediaBundle\Twig\MediaExtension: ~

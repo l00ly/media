@@ -1,6 +1,6 @@
 <?php
 
-namespace Oosaulenko\MediaBundle\DependencyInjection;
+namespace Looly\Media\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -8,7 +8,7 @@ use Symfony\Component\DependencyInjection\Extension\Extension;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 
-class OosaulenkoMediaExtension extends Extension implements PrependExtensionInterface
+class LoolyMediaExtension extends Extension implements PrependExtensionInterface
 {
 
     public function load(array $configs, ContainerBuilder $container): void
@@ -27,12 +27,12 @@ class OosaulenkoMediaExtension extends Extension implements PrependExtensionInte
         $configuration = $this->getConfiguration($configs, $container);
         $config = $this->processConfiguration($configuration, $configs);
 
-        $container->prependExtensionConfig('oosaulenko_media', $config);
+        $container->prependExtensionConfig('looly_media', $config);
         $twigConfig = [];
-        $twigConfig['paths'][__DIR__.'/../Resources/views'] = 'oosaulenko_media';
-        $twigConfig['globals']['oosaulenko_media'] = [];
+        $twigConfig['paths'][__DIR__.'/../Resources/views'] = 'looly_media';
+        $twigConfig['globals']['looly_media'] = [];
         foreach ($config as $k => $v) {
-            $twigConfig['globals']['oosaulenko_media'][$k] = $v;
+            $twigConfig['globals']['looly_media'][$k] = $v;
         }
 
         $container->prependExtensionConfig('twig', $twigConfig);
@@ -40,6 +40,6 @@ class OosaulenkoMediaExtension extends Extension implements PrependExtensionInte
 
     public function getAlias(): string
     {
-        return 'oosaulenko_media';
+        return 'looly_media';
     }
 }

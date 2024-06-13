@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Oosaulenko\MediaBundle\Form;
+namespace Looly\Media\Form;
 
-use Oosaulenko\MediaBundle\Form\Type\MediaMultipleType;
+use Looly\Media\Form\Type\MediaMultipleType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;

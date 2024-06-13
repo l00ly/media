@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block page_actions %}
-    <a class="actionUploadNewMedia btn btn-primary" href="{{ ea_url().setRoute('oosaulenko_media_upload') }}">
+    <a class="actionUploadNewMedia btn btn-primary" href="{{ ea_url().setRoute('looly_media_upload') }}">
         <span class="action-label">Upload</span>
     </a>
 {% endblock %}
@@ -21,11 +21,11 @@
 {# styles #}
 {% block head_stylesheets %}
     {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('bundles/oosaulenkomedia/css/manager.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('bundles/loolymedia/css/manager.css') }}" type="text/css">
 {% endblock %}
 
 {# scripts #}
 {% block body_javascript %}
     {{ parent() }}
-    <script src="{{ asset('bundles/oosaulenkomedia/js/media-bundle.js') }}"></script>
+    <script src="{{ asset('bundles/loolymedia/js/media-bundle.js') }}"></script>
 {% endblock %}

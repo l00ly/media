@@ -1,8 +1,8 @@
 <?php
 
-namespace Oosaulenko\MediaBundle\DependencyInjection;
+namespace Looly\Media\DependencyInjection;
 
-use Oosaulenko\MediaBundle\Entity\Media;
+use Looly\Media\Entity\Media;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 use Symfony\Component\Config\Definition\Exception\InvalidConfigurationException;

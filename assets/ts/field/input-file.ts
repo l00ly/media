@@ -27,14 +27,14 @@ const handlerInitFileFields = () => {
             const fileEl = FilePond.create(input, {
                 server: {
                     process: {
-                        url: '/bundle/oosaulenko/media-bundle/add',
+                        url: '/bundle/looly/media-bundle/add',
                         method: 'POST',
                         withCredentials: false,
                         onload: (response) => {
                             return 126;
                         }
                     },
-                    revert: '/bundle/oosaulenko/media-bundle/remove',
+                    revert: '/bundle/looly/media-bundle/remove',
                     restore: './restore/',
                     load: './load/',
                     fetch: './fetch/',
@@ -59,14 +59,14 @@ const handlerInitFilesFields = () => {
             FilePond.create(input, {
                 server: {
                     process: {
-                        url: '/bundle/oosaulenko/media-bundle/add',
+                        url: '/bundle/looly/media-bundle/add',
                         method: 'POST',
                         withCredentials: false,
                         onload: (response) => {
                             return 126;
                         }
                     },
-                    revert: '/bundle/oosaulenko/media-bundle/remove',
+                    revert: '/bundle/looly/media-bundle/remove',
                     restore: './restore/',
                     load: './load/',
                     fetch: './fetch/',

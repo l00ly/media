@@ -1,6 +1,6 @@
 <?php
 
-namespace Oosaulenko\MediaBundle\EventListener;
+namespace Looly\Media\EventListener;
 
 use Symfony\Component\HttpKernel\Event\ExceptionEvent;
 

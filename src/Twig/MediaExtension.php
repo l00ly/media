@@ -1,8 +1,8 @@
 <?php
 
-namespace Oosaulenko\MediaBundle\Twig;
+namespace Looly\Media\Twig;
 
-use Oosaulenko\MediaBundle\Service\MediaServiceInterface;
+use Looly\Media\Service\MediaServiceInterface;
 use Symfony\Component\Filesystem\Filesystem;
 use Twig\Environment;
 use Twig\Extension\AbstractExtension;
@@ -42,7 +42,7 @@ class MediaExtension extends AbstractExtension
             }
         }
 
-        return $this->twig->render('@oosaulenko_media/looly_media.html.twig', [
+        return $this->twig->render('@looly_media/looly_media.html.twig', [
             'media' => $media,
             'variations' => $mediaVariations
         ]);

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Oosaulenko\MediaBundle\EventListener;
+namespace Looly\Media\EventListener;
 
 use Doctrine\Bundle\DoctrineBundle\Attribute\AsDoctrineListener;
 use Doctrine\ORM\Event\LoadClassMetadataEventArgs;

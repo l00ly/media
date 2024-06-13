@@ -1,5 +1,5 @@
 export const variables = {
-    path: '/bundle/oosaulenko/media-bundle',
-    add: '/bundle/oosaulenko/media-bundle/add',
-    remove: '/bundle/oosaulenko/media-bundle/remove'
+    path: '/bundle/looly/media-bundle',
+    add: '/bundle/looly/media-bundle/add',
+    remove: '/bundle/looly/media-bundle/remove'
 }

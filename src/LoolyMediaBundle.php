@@ -1,12 +1,12 @@
 <?php
 
-namespace Oosaulenko\MediaBundle;
+namespace Looly\Media;
 
-use Oosaulenko\MediaBundle\DependencyInjection\OosaulenkoMediaExtension;
+use Looly\Media\DependencyInjection\LoolyMediaExtension;
 use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class OosaulenkoMediaBundle extends Bundle
+class LoolyMediaBundle extends Bundle
 {
     public function getPath(): string
     {
@@ -18,6 +18,6 @@ class OosaulenkoMediaBundle extends Bundle
      */
     public function getContainerExtension(): ?ExtensionInterface
     {
-        return new OosaulenkoMediaExtension();
+        return new LoolyMediaExtension();
     }
 }

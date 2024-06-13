@@ -1,6 +1,6 @@
 <?php
 
-namespace Oosaulenko\MediaBundle\Exception;
+namespace Looly\Media\Exception;
 
 use Exception;
 

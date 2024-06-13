@@ -1,6 +1,6 @@
 {
-  "name": "oosaulenko-media",
-  "description": "A Gutenberg implementation for EasyAdmin",
+  "name": "l00ly-media",
+  "description": "A simple media library",
   "directories": {
     "test": "tests"
   },

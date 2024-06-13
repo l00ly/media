@@ -1,10 +1,10 @@
 <?php
 
-namespace Oosaulenko\MediaBundle\Service;
+namespace Looly\Media\Service;
 
 use App\Entity\LoolyMedia\Media;
-use Oosaulenko\MediaBundle\Repository\MediaRepositoryInterface;
-use Oosaulenko\MediaBundle\Utilities\FileUploaderInterface;
+use Looly\Media\Repository\MediaRepositoryInterface;
+use Looly\Media\Utilities\FileUploaderInterface;
 
 class MediaService implements MediaServiceInterface
 {

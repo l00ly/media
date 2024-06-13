@@ -1,6 +1,6 @@
 <?php
 
-namespace Oosaulenko\MediaBundle\Admin\Field;
+namespace L00ly\MediaBundle\Admin\Field;
 
 use EasyCorp\Bundle\EasyAdminBundle\Contracts\Field\FieldInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FieldTrait;
@@ -19,7 +19,7 @@ class LoolyMediaField implements FieldInterface
             ->setLabel($label)
 
             // this template is used in 'index' and 'detail' pages
-            ->setTemplatePath('@OosaulenkoMedia/admin/field/looly-media.html.twig')
+            ->setTemplatePath('@LoolyMedia/admin/field/looly-media.html.twig')
 
             // this is used in 'edit' and 'new' pages to edit the field contents
             // you can use your own form types too

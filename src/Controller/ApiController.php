@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Oosaulenko\MediaBundle\Controller;
+namespace Looly\Media\Controller;
 
 use App\Entity\LoolyMedia\Media;
-use Oosaulenko\MediaBundle\Service\MediaServiceInterface;
-use Oosaulenko\MediaBundle\Utilities\FileUploaderInterface;
+use Looly\Media\Service\MediaServiceInterface;
+use Looly\Media\Utilities\FileUploaderInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Attribute\Route;
 
-#[Route('/bundle/oosaulenko/media-bundle', name: 'oosaulenko_media_')]
+#[Route('/bundle/looly/media-bundle', name: 'looly_media_')]
 class ApiController extends AbstractController
 {
     public function __construct(

@@ -1,6 +1,6 @@
 <?php
 
-namespace Oosaulenko\MediaBundle\Service;
+namespace Looly\Media\Service;
 
 use App\Entity\LoolyMedia\Media;
 

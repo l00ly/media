@@ -1,6 +1,6 @@
 <?php
 
-namespace Oosaulenko\MediaBundle\Utilities;
+namespace Looly\Media\Utilities;
 
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\UploadedFile;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Oosaulenko\MediaBundle\Entity;
+namespace Looly\Media\Entity;
 
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;

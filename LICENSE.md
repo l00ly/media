@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2024 OOSAULENKO
+Copyright (c) 2024 L00ly
 
 This document provides authorization, without charge, to any individual who acquires a copy of this software and its related documents (collectively referred to as the "Software"). Individuals are permitted to interact with the Software without any constraints, which includes but is not limited to the abilities to utilize, replicate, alter, integrate, disclose, distribute, grant sublicenses, and/or sell the Software copies. Furthermore, it allows these individuals to offer the Software to others under similar terms, with the stipulation that:
 
