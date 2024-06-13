@@ -2,6 +2,7 @@ import * as basicLightbox from 'basiclightbox'
 import {listMediaHandler, handlerUpdateForm, getOneMediaHandler} from "../fetch-handler/list-media-handler";
 import {mediaItem} from "../template/media-item";
 import {mediaChoiceInterfaceEl} from "../template/media-choice-type";
+import {handlerInitQuickUploadFields} from "../field/input-file-quick";
 
 const handleInitChoiceFile = () => {
     const fieldChoiceEls = document.querySelectorAll('.l-media-field-choice-file');
@@ -62,7 +63,15 @@ const handleInitChoiceFile = () => {
 
                     const modalChoiceMedia = basicLightbox.create(`<div class="l-media-modal"></div>`, {
                         onShow: (instance) => {
-                            instance.element().querySelector('.l-media-modal').innerHTML = `<div class="l-media-list is-load"><div class="l-media-list-wrapper"></div></div>`;
+                            instance.element().querySelector('.l-media-modal').innerHTML = `
+                                <div class="small-loading"></div>   
+                                <input type="file" class="l-media-quick_upload" multiple> 
+                                <div class="l-media-list is-load"><div class="l-media-list-wrapper"></div></div>
+                            `;
+
+                            setTimeout(() => {
+                                handlerInitQuickUploadFields();
+                            }, 100);
 
                             listMediaHandler()
                                 .catch((error) => {

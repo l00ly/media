@@ -51,20 +51,28 @@ class ApiController extends AbstractController
     public function add(Request $request): JsonResponse
     {
         $inputs = $request->files->all();
+        $medias = [];
 
         foreach ($inputs as $input) {
-            $field_name = array_key_first($input);
-            $file = $this->fileUploader->upload($input[$field_name]);
+            if(is_array($input)) {
+                $field_name = array_key_first($input);
+                $file = $this->fileUploader->upload($input[$field_name]);
+            } else {
+                $file = $this->fileUploader->upload($input);
+            }
 
             $media = new Media();
             $media->setData($file);
+            $medias[] = $media;
 
             $this->mediaService->add($media);
         }
 
         $this->mediaService->save();
 
-        return $this->json([ ]);
+        return $this->json([
+            'data' => $medias
+        ]);
     }
 
     #[Route('/remove', name: 'remove')]

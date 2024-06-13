@@ -7,6 +7,7 @@
     padding: 20px;
     border-radius: 16px;
     overflow-y: scroll;
+    position: relative;
 }
 
 .l-media-field-choice-file-interface {
@@ -67,6 +68,31 @@
                 align-items: center;
                 justify-content: center;
                 background-color: rgba(255, 255, 255, 0.5);
+
+                .btn {
+                    width: 48px;
+                    height: 48px;
+                    border-radius: 50%;
+                    border: 0;
+                    box-shadow: none;
+                }
+
+                .btn--select {
+                    font-family: 'Font Awesome\ 6 Free';
+                    font-weight: 700;
+
+                    &:before {
+                        content: "\f00c";
+                    }
+                }
+
+                .btn--remove {
+                    font-family: 'Font Awesome\ 6 Free';
+
+                    &:before {
+                        content: "\f2ed";
+                    }
+                }
             }
 
             &:hover {
@@ -120,4 +146,19 @@ body.ea-dark-scheme {
     color: red;
     line-height: 1;
     font-size: 20px;
+}
+
+.small-loading {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    z-index: 100;
+    background-image: url("data:image/svg+xml,%3Csvg version='1.1' id='loader-1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='40px' height='40px' viewBox='0 0 50 50' style='enable-background:new 0 0 50 50;' xml:space='preserve'%3E%3Cpath fill='%23000' d='M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z'%3E%3CanimateTransform attributeType='xml' attributeName='transform' type='rotate' from='0 25 25' to='360 25 25' dur='0.6s' repeatCount='indefinite'/%3E%3C/path%3E%3C/svg%3E");
+    opacity: 0;
+    visibility: hidden;
+
+    &.is-active {
+        opacity: 1;
+        visibility: visible;
+    }
 }
