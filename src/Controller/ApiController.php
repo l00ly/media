@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Looly\Media\Controller;
 
 use App\Entity\LoolyMedia\Media;
+use Looly\Media\Service\Filter\ListFilter;
 use Looly\Media\Service\MediaServiceInterface;
 use Looly\Media\Utilities\FileUploaderInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -19,6 +20,25 @@ class ApiController extends AbstractController
         protected FileUploaderInterface $fileUploader,
         protected MediaServiceInterface $mediaService
     ) { }
+
+    #[Route('/list', name: 'list_all')]
+    public function list(Request $request): JsonResponse
+    {
+        $filter = new ListFilter(
+            (int) $request->query->get('limit', 10),
+            (int) $request->query->get('page', 1),
+            $request->query->all('ids'),
+        );
+
+        $medias = $this->mediaService->findList($filter);
+
+        return $this->json([
+            'meta' => [
+                'total' => $medias->count(),
+            ],
+            'data' => $medias
+        ]);
+    }
 
     #[Route('/fetch-list', name: 'fetch_list')]
     public function index(Request $request): JsonResponse

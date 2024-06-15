@@ -31,13 +31,14 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.21.4",
     "basiclightbox": "^5.0.4",
     "filepond": "^4.31.1",
     "filepond-plugin-file-metadata": "^1.0.8",
     "filepond-plugin-image-preview": "^4.6.12",
     "is-svg": "^4.3.2",
     "qs": "^6.10.3",
+    "sortablejs": "^1.15.2",
     "uuid": "^8.3.2"
   }
 }

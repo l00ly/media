@@ -5,6 +5,7 @@ import {mediaItem} from "./template/media-item";
 import {listMediaHandler, removeMediaHandler} from "./fetch-handler/list-media-handler";
 import './field/input-file';
 import './field/input-choice-file';
+import './field/gallery';
 
 const list = document.querySelector('.l-media-list');
 

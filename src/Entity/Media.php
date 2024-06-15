@@ -4,6 +4,7 @@ namespace Looly\Media\Entity;
 
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Filesystem\Filesystem;
 
 #[ORM\MappedSuperclass]
 class Media
@@ -163,5 +164,29 @@ class Media
         $this->setUpdatedAtDefault();
 
         return $this;
+    }
+
+    public function getFullPath(string $size = 'desktop'): string
+    {
+        $filesystem = new Filesystem();
+
+        $file_path = '/' . $this->getFolder() . $this->getSlug() . '_' . $size . '.webp';
+
+        if($filesystem->exists($file_path)) {
+            return $file_path;
+        }
+
+        return '/' . $this->getFolder() . $this->getName();
+    }
+
+    public function getThumbnail(): string
+    {
+        $file_path = $this->getFolder() . $this->getSlug() . '_mobile.webp';
+
+        if(file_exists('/app/web/public/'.$file_path)) {
+            return $file_path;
+        }
+
+        return '/' . $this->getFolder() . $this->getName();
     }
 }

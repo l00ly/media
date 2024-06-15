@@ -1,5 +1,16 @@
 @import "module/filepond.css";
 
+
+@import "element/card.css";
+
+@import "field/gallery.css";
+
+@import "block/modal-library.css";
+
+body.is-scroll {
+    overflow: hidden;
+}
+
 .l-media-modal {
     width: 1200px;
     height: 700px;

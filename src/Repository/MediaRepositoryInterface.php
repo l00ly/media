@@ -3,6 +3,8 @@
 namespace Looly\Media\Repository;
 
 use App\Entity\LoolyMedia\Media;
+use Doctrine\ORM\Tools\Pagination\Paginator;
+use Looly\Media\Service\Filter\ListFilter;
 
 interface MediaRepositoryInterface
 {
@@ -38,6 +40,9 @@ interface MediaRepositoryInterface
      * @return Media[]|null
      */
     public function list(int $limit, int $offset = 0): ?array;
+
+
+    public function findList(ListFilter $filter): Paginator;
 
     /**
      * @return int
