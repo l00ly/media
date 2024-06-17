@@ -1,0 +1,41 @@
+.lm-media {
+    border: 1px solid var(--form-input-border-color);
+    border-radius: var(--bs-border-radius);
+
+    .lm-media__wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px;
+        gap: 12px;
+    }
+
+    .lm-media__preview {
+
+        img {
+            width: 80px;
+            height: 80px;
+            border-radius: 6px;
+            overflow: hidden;
+            object-fit: cover;
+        }
+
+    }
+
+    .lm-media__actions {
+        display: flex;
+        gap: 6px;
+
+        .lm-media__action--delete {
+            display: none;
+        }
+    }
+
+    &.is-active {
+
+        .lm-media__action--delete {
+            display: block;
+        }
+
+    }
+}

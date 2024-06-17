@@ -1,11 +1,10 @@
 import '../css/manager.css';
-import {variables} from "./options/variables";
 import {mediaItem} from "./template/media-item";
 
 import {listMediaHandler, removeMediaHandler} from "./fetch-handler/list-media-handler";
 import './field/input-file';
-import './field/input-choice-file';
 import './field/gallery';
+import './field/media';
 
 const list = document.querySelector('.l-media-list');
 

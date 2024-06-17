@@ -1,11 +1,5 @@
 import {_CARD, _GALLERY} from "../options/variables";
 import {handlerOpenModalLibrary} from "../module/modal";
-import {handlerList} from "../handler/api/list";
-import {card} from "../template/card";
-
-let modalLibrary;
-let fieldGallery;
-let excludeIds : number[] = [];
 
 document.addEventListener('click', (event) => {
     const target = event.target as Element;
@@ -15,15 +9,13 @@ document.addEventListener('click', (event) => {
     const btnDeleteSelected = target.closest('.' + _GALLERY.actions.delete) as HTMLButtonElement;
     const btnCancel = target.closest('.' + _GALLERY.actions.cancel) as HTMLButtonElement;
     const btnAdd = target.closest('.' + _GALLERY.actions.add) as HTMLButtonElement;
-    const btnSelect = target.closest('.' + _GALLERY.actions.select) as HTMLButtonElement;
-    const btnLoadMore = target.closest('.' + _GALLERY.actions.load_more) as HTMLButtonElement;
     const typeGallery = elList?.getAttribute('data-type');
 
     if(!elList) {
         return;
     }
 
-    if(btnRemoveCard || elCard || btnDeleteSelected || btnCancel || btnAdd || btnLoadMore) {
+    if(btnRemoveCard || elCard || btnDeleteSelected || btnCancel || btnAdd) {
         event.preventDefault();
         event.stopPropagation();
     }
@@ -40,17 +32,14 @@ document.addEventListener('click', (event) => {
      * Select card from gallery
      */
     if(elCard && !btnRemoveCard) {
+        if(!elCard.closest('.' + _GALLERY.list + '[data-type="field"]')) {
+            return;
+        }
+
         const checkbox = elCard.querySelector('.' + _CARD.checkbox) as HTMLInputElement;
         if(checkbox) {
             checkbox.checked = !checkbox.checked;
-
-            if(typeGallery == 'field') {
-                handleMultipleDelete(elList);
-            }
-
-            if(typeGallery == 'multiple') {
-                handleMultipleSelect(elList);
-            }
+            handleMultipleDelete(elList);
         }
     }
 
@@ -86,66 +75,9 @@ document.addEventListener('click', (event) => {
      * Open modal library
      */
     if(btnAdd) {
-        fieldGallery = elList;
-        excludeIds = getCheckedCards(elList);
-        modalLibrary = handlerOpenModalLibrary(excludeIds);
+        handlerOpenModalLibrary(elList, getCheckedCards(elList));
     }
-
-    /**
-     * Load more cards
-     */
-    if(btnLoadMore) {
-        const page =  Number(elList.getAttribute('data-page'));
-        const limit = Number(elList.getAttribute('data-limit'));
-        const itemsEl = elList.querySelector('.lm-gallery__items') as HTMLElement;
-
-        console.log(excludeIds);
-
-        handlerList(limit, page, excludeIds).then((response) => {
-            itemsEl.insertAdjacentHTML('beforeend',
-                response.data.map((item) => {
-                return card(item);
-            }).join(''));
-
-            if(response.data.length < limit) {
-                btnLoadMore.style.display = 'none';
-            }
-
-            elList.setAttribute('data-page', (page + 1).toString());
-        }).catch((error) => {});
-    }
-
-    /**
-     * Select cards
-     */
-    if(btnSelect) {
-        const selected = getSelectedCards(elList);
-
-        selected.forEach((item) => {
-            const checkbox = item.querySelector('.' + _CARD.checkbox) as HTMLInputElement;
-            checkbox.checked = true;
-            checkbox.setAttribute('name', fieldGallery.getAttribute('data-name-field'));
-
-            fieldGallery.querySelector('.lm-gallery__items').insertAdjacentElement('afterbegin', item);
-        });
-
-        modalLibrary.close();
-    }
-
 });
-
-function checkingSelectedCard(wrapper: HTMLElement) : boolean {
-    let selected = false;
-    const checkboxes = wrapper.querySelectorAll('.' + _CARD.checkbox) as NodeListOf<HTMLInputElement>;
-
-    checkboxes.forEach((checkbox) => {
-        if(checkbox.checked) {
-            selected = true;
-        }
-    });
-
-    return selected;
-}
 
 function checkingUnSelectedCard(wrapper: HTMLElement) : boolean {
     let selected = false;
@@ -168,32 +100,12 @@ function handleMultipleDelete(wrapper: HTMLElement) : void {
     }
 }
 
-function handleMultipleSelect(wrapper: HTMLElement) : void {
-    if(checkingSelectedCard(wrapper)) {
-        wrapper.classList.add('is-multiple_select');
-    } else {
-        wrapper.classList.remove('is-multiple_select');
-    }
-}
-
 function getCheckedCards(wrapper: HTMLElement) : number[] {
     let selected: number[] = [];
     const checkboxes = wrapper.querySelectorAll('.' + _CARD.checkbox) as NodeListOf<HTMLInputElement>;
 
     checkboxes.forEach((checkbox) => {
         selected.push(Number(checkbox.value));
-    });
-
-    return selected;
-}
-
-function getSelectedCards(wrapper: HTMLElement) : HTMLElement[] {
-    let selected: HTMLElement[] = [];
-    const checkboxes = wrapper.querySelectorAll('.' + _CARD.checkbox + ':checked') as NodeListOf<HTMLInputElement>;
-
-    checkboxes.forEach((checkbox) => {
-        const card = checkbox.closest('.' + _CARD.card) as HTMLElement;
-        selected.push(card);
     });
 
     return selected;

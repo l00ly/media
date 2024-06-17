@@ -1285,6 +1285,49 @@
 /*.lm-card-media__checkbox:checked + .lm-card-media__label {*/
 /*    box-shadow: 0 0 0 2px transparent;*/
 /*}*/
+/*!**********************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./assets/css/element/loading.css ***!
+  \**********************************************************************************/
+.btn.is-loading {
+    font-size: 0;
+
+    &:after {
+        content: '';
+        display: inline-block;
+        width: 21px;
+        height: 21px;
+        background-size: contain;
+        background-image: url("data:image/svg+xml,%3Csvg version=%271.1%27 id=%27loader-1%27 xmlns=%27http://www.w3.org/2000/svg%27 xmlns:xlink=%27http://www.w3.org/1999/xlink%27 x=%270px%27 y=%270px%27 width=%2740px%27 height=%2740px%27 viewBox=%270 0 50 50%27 style=%27enable-background:new 0 0 50 50;%27 xml:space=%27preserve%27%3E%3Cpath fill=%27%23000%27 d=%27M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z%27%3E%3CanimateTransform attributeType=%27xml%27 attributeName=%27transform%27 type=%27rotate%27 from=%270 25 25%27 to=%27360 25 25%27 dur=%270.6s%27 repeatCount=%27indefinite%27/%3E%3C/path%3E%3C/svg%3E");
+    }
+
+}
+
+.lm-modal.is-loading {
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 1);
+        z-index: 100;
+    }
+
+    &:after {
+        content: '';
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        background-size: contain;
+        background-image: url("data:image/svg+xml,%3Csvg version=%271.1%27 id=%27loader-1%27 xmlns=%27http://www.w3.org/2000/svg%27 xmlns:xlink=%27http://www.w3.org/1999/xlink%27 x=%270px%27 y=%270px%27 width=%2740px%27 height=%2740px%27 viewBox=%270 0 50 50%27 style=%27enable-background:new 0 0 50 50;%27 xml:space=%27preserve%27%3E%3Cpath fill=%27%23000%27 d=%27M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z%27%3E%3CanimateTransform attributeType=%27xml%27 attributeName=%27transform%27 type=%27rotate%27 from=%270 25 25%27 to=%27360 25 25%27 dur=%270.6s%27 repeatCount=%27indefinite%27/%3E%3C/path%3E%3C/svg%3E");
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        z-index: 101;
+    }
+}
 /*!********************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./assets/css/field/gallery.css ***!
   \********************************************************************************/
@@ -1383,6 +1426,50 @@
     }
 }
 
+/*!******************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./assets/css/field/media.css ***!
+  \******************************************************************************/
+.lm-media {
+    border: 1px solid var(--form-input-border-color);
+    border-radius: var(--bs-border-radius);
+
+    .lm-media__wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px;
+        gap: 12px;
+    }
+
+    .lm-media__preview {
+
+        img {
+            width: 80px;
+            height: 80px;
+            border-radius: 6px;
+            overflow: hidden;
+            object-fit: cover;
+        }
+
+    }
+
+    .lm-media__actions {
+        display: flex;
+        gap: 6px;
+
+        .lm-media__action--delete {
+            display: none;
+        }
+    }
+
+    &.is-active {
+
+        .lm-media__action--delete {
+            display: block;
+        }
+
+    }
+}
 /*!**************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./assets/css/block/modal-library.css ***!
   \**************************************************************************************/

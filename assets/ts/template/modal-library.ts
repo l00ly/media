@@ -1,8 +1,8 @@
 export const modalLibrary = () => {
     return `
-        <div class="lm-modal lm-modal-library">
+        <div class="lm-modal lm-modal-library is-loading">
             <div class="lm-modal__body">  
-                <div class="lm-gallery" data-type="multiple" data-page="1" data-limit="24">  
+                <div class="lm-gallery" data-type="library" data-page="1" data-limit="24">  
                     <div class="lm-gallery__wrapper">
                         <div class="lm-gallery__panel">
                             <h6 class="lm-gallery__title">Media Library</h6>

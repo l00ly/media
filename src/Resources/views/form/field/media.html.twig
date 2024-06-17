@@ -1,0 +1,17 @@
+{% block media_widget %}
+    <div class="lm-media{{ (form.vars.data) ? ' is-active' : '' }}"  data-multiple="false">
+        <input type="hidden" name="{{ form.vars.full_name }}" value="{{ form.vars.value }}" class="lm-media__input">
+        <div class="lm-media__wrapper">
+            <div class="lm-media__preview">
+                {% if(form.vars.data) %}
+                    <img src="{{ form.vars.data.getThumbnail() }}" class="lm-media__image">
+                {% endif %}
+            </div>
+
+            <div class="lm-media__actions">
+                <button type="button" class="btn lm-media__action lm-media__action--select">Choice file</button>
+                <button type="button" class="btn btn-danger lm-media__action lm-media__action--delete"><i class="fa-solid fa-trash-can"></i></button>
+            </div>
+        </div>
+    </div>
+{% endblock %}

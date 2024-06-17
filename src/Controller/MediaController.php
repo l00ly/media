@@ -11,13 +11,13 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class MediaController extends AbstractController
 {
-    #[Route('/easymedia/medias/', name: 'looly_media_list')]
+    #[Route('/looly-media/medias/', name: 'looly_media_list')]
     public function __invoke(): Response
     {
         return $this->render('@looly_media/admin/index.html.twig');
     }
 
-    #[Route('/easymedia/medias/upload', name: 'looly_media_upload')]
+    #[Route('/looly-media/medias/upload', name: 'looly_media_upload')]
     public function upload(Request $request): Response
     {
         $form = $this->createForm(UploadFormType::class);
