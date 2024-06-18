@@ -3,11 +3,12 @@
     "type": "symfony-bundle",
     "description": "Media bundle for Symfony",
     "keywords": ["symfony", "media", "bundle"],
-    "version": "0.0.2",
+    "version": "0.1.0",
     "require": {
         "symfony/framework-bundle": "^7.0",
         "intervention/image": "^3.6",
-        "ext-gd": "*"
+        "ext-gd": "*",
+        "easycorp/easyadmin-bundle": "^4.10"
     },
     "license": "MIT",
     "autoload": {

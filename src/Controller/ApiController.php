@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Looly\Media\Controller;
 
 use App\Entity\LoolyMedia\Media;
+use Looly\Media\Service\Filter\ListFilter;
 use Looly\Media\Service\MediaServiceInterface;
 use Looly\Media\Utilities\FileUploaderInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -20,30 +21,41 @@ class ApiController extends AbstractController
         protected MediaServiceInterface $mediaService
     ) { }
 
-    #[Route('/fetch-list', name: 'fetch_list')]
-    public function index(Request $request): JsonResponse
+    #[Route('/list', name: 'list_all')]
+    public function list(Request $request): JsonResponse
     {
-        $content = json_decode($request->getContent());
-        $medias = $this->mediaService->list($content->limit, $content->offset);
+        $filter = new ListFilter(
+            (int) $request->query->get('limit', 10),
+            (int) $request->query->get('page', 1),
+            $request->query->all('ids'),
+        );
+
+        $medias = $this->mediaService->findList($filter);
 
         return $this->json([
             'meta' => [
-                'limit' => $content->limit,
-                'offset' => $content->offset + $content->limit,
-                'total' => $this->mediaService->countList()
+                'total' => $medias->count(),
             ],
-            'body' => $medias
+            'data' => $medias
         ]);
     }
 
-    #[Route('/get_one', name: 'get_one')]
-    public function getOne(Request $request): JsonResponse
+    #[Route('/remove', name: 'remove')]
+    public function remove(Request $request): JsonResponse
     {
-        $content = json_decode($request->getContent());
-        $media = $this->mediaService->findOneById((int) $content->id);
+        $id = $request->query->get('id');
+
+        if (!$id) {
+            return $this->json([
+                'status' => 'error',
+                'message' => 'Media ID is required'
+            ]);
+        }
+
+        $this->mediaService->remove($id, true);
 
         return $this->json([
-            'body' => $media
+            'status' => 'success'
         ]);
     }
 
@@ -72,25 +84,6 @@ class ApiController extends AbstractController
 
         return $this->json([
             'data' => $medias
-        ]);
-    }
-
-    #[Route('/remove', name: 'remove')]
-    public function remove(Request $request): JsonResponse
-    {
-        $content = json_decode($request->getContent());
-
-        if (!isset($content->id)) {
-            return $this->json([
-                'status' => 'error',
-                'message' => 'Media ID is required'
-            ]);
-        }
-
-        $this->mediaService->remove($content->id, true);
-
-        return $this->json([
-            'status' => 'success'
         ]);
     }
 }

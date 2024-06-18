@@ -5,7 +5,9 @@ namespace Looly\Media\Repository;
 use App\Entity\LoolyMedia\Media;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 use Doctrine\Persistence\ManagerRegistry;
+use Looly\Media\Service\Filter\ListFilter;
 
 class MediaRepository extends ServiceEntityRepository implements MediaRepositoryInterface
 {
@@ -53,6 +55,25 @@ class MediaRepository extends ServiceEntityRepository implements MediaRepository
             ->orderBy('m.id', 'DESC')
             ->getQuery()
             ->getResult();
+    }
+
+    public function findList(ListFilter $filter): Paginator
+    {
+        $qb = $this->createQueryBuilder('m');
+
+        if ($filter->getLimit() > 0) {
+            $qb->setMaxResults($filter->getLimit());
+            $qb->setFirstResult(($filter->getPage() - 1) * $filter->getLimit());
+        }
+
+        if($filter->excludeIds()) {
+            $qb->andWhere('m.id NOT IN (:ids)')
+                ->setParameter('ids', $filter->excludeIds());
+        }
+
+        $qb->orderBy('m.id', 'DESC');
+
+        return new Paginator($qb->getQuery());
     }
 
     public function countList(): int

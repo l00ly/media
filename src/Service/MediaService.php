@@ -3,7 +3,9 @@
 namespace Looly\Media\Service;
 
 use App\Entity\LoolyMedia\Media;
+use Doctrine\ORM\Tools\Pagination\Paginator;
 use Looly\Media\Repository\MediaRepositoryInterface;
+use Looly\Media\Service\Filter\ListFilter;
 use Looly\Media\Utilities\FileUploaderInterface;
 
 class MediaService implements MediaServiceInterface
@@ -40,6 +42,11 @@ class MediaService implements MediaServiceInterface
     public function list(int $limit, int $offset = 0): ?array
     {
         return $this->repository->list($limit, $offset);
+    }
+
+    public function findList(ListFilter $filter): Paginator
+    {
+        return $this->repository->findList($filter);
     }
 
     public function findOneById(int $id): ?Media

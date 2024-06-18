@@ -1,0 +1,22 @@
+.lm-modal-delete {
+    width: 300px;
+    background-color: #fff;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    .lm-modal__body {
+        height: 100%;
+        padding: 20px;
+    }
+
+    .lm-modal__title {
+        margin-bottom: 20px;
+    }
+
+    .lm-modal__actions {
+        display: flex;
+        gap: 12px;
+    }
+}

@@ -1,0 +1,94 @@
+.lm-field-gallery {
+
+}
+
+.lm-gallery {
+    border: 1px solid #e5e5e5;
+
+    .lm-gallery__wrapper {
+
+    }
+
+    .lm-gallery__panel {
+        padding: 12px;
+        background: var(--tertiary-bg);
+        border-bottom: 1px solid #e5e5e5;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .lm-gallery__title {
+            margin-bottom: 0;
+            line-height: 29px;
+
+            + .lm-gallery__actions {
+                width: auto;
+            }
+        }
+    }
+
+    .lm-gallery__items {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 12px;
+        padding: 12px;
+        position: relative;
+    }
+
+    .lm-gallery__actions {
+        display: flex;
+        gap: 10px;
+        width: 100%;
+
+        .lm-gallery__action--add {
+            margin-right: auto;
+        }
+
+        .lm-gallery__action--delete_selected, .lm-gallery__action--cancel, .lm-gallery__action--select {
+            display: none;
+        }
+    }
+
+    &.is-multiple_delete {
+        .lm-gallery__actions {
+            .lm-gallery__action--delete_selected, .lm-gallery__action--cancel {
+                display: block;
+            }
+        }
+
+        .lm-gallery__items {
+            background-color: #f5f5f5;
+
+            .lm-card-media {
+                .lm-card-media__checkbox {
+                    &:checked {
+                        + .lm-card-media__label {
+                            position: relative;
+
+                            &:before {
+                                content: '';
+                                position: absolute;
+                                top: 0;
+                                left: 0;
+                                width: 100%;
+                                height: 100%;
+                                background-color: rgba(255, 255, 255, 0.4);
+                            }
+                        }
+                    }
+                }
+
+                .lm-card-media__remove {
+                    opacity: 1 !important;
+                    visibility: hidden !important;
+                }
+            }
+        }
+    }
+
+    &.is-multiple_select {
+        .lm-gallery__action--select {
+            display: block;
+        }
+    }
+}

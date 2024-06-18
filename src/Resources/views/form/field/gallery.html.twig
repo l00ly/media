@@ -1,0 +1,32 @@
+{% block gallery_widget %}
+    <div class="lm-gallery" data-type="field" data-multiple="true" data-name-field="{{ form.vars.full_name }}">
+        <div class="lm-gallery__wrapper">
+            <div class="lm-gallery__panel">
+                <div class="lm-gallery__actions">
+                    <button type="button" class="btn btn-primary lm-gallery__action lm-gallery__action--add"><i class="fa-solid fa-plus"></i></button>
+                    <button type="button" class="btn lm-gallery__action lm-gallery__action--cancel">Cancel</button>
+                    <button type="button" class="btn btn-danger lm-gallery__action lm-gallery__action--delete_selected">Delete selected</button>
+                </div>
+            </div>
+
+            {% if form.vars.value|length == 0 %}
+                <div class="lm-gallery__notification">
+                    <i class="fa-solid fa-info-circle"></i>
+                    <span>Click the button to add images</span>
+                </div>
+            {% else %}
+                <div class="lm-gallery__items">
+                    {% for media in form.vars.data %}
+                        <div class="lm-card-media">
+                            <input class="lm-card-media__checkbox" type="checkbox" id="{{ media.slug }}" name="{{ form.vars.full_name }}" value="{{ media.id }}" checked>
+                            <label for="{{ media.slug }}" class="lm-card-media__label">
+                                <button class="lm-card-media__remove"></button>
+                                <img src="{{ media.getThumbnail() }}" class="lm-item__image">
+                            </label>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

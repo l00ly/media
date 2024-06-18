@@ -4,9 +4,9 @@ namespace Looly\Media\Admin\Field;
 
 use EasyCorp\Bundle\EasyAdminBundle\Contracts\Field\FieldInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FieldTrait;
-use Looly\Media\Form\Type\MediaType;
+use Looly\Media\Form\Type\GalleryType;
 
-class LoolyMediaField implements FieldInterface
+class LoolyGalleryField implements FieldInterface
 {
     use FieldTrait;
 
@@ -21,8 +21,8 @@ class LoolyMediaField implements FieldInterface
             ->hideOnIndex()
             ->setColumns(12)
 
-            ->setFormType(MediaType::class)
-            ->addCssClass('lm-field-media')
+            ->setFormType(GalleryType::class)
+            ->addCssClass('lm-field-gallery')
             ;
     }
 }

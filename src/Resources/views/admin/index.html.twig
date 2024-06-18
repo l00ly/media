@@ -1,15 +1,30 @@
 {% extends '@EasyAdmin/layout.html.twig' %}
 
-{% block page_title %}{{ 'title'|trans|striptags|raw }}{% endblock %}
+{% block page_title %}{{ 'Medias'|trans|striptags|raw }}{% endblock %}
+{% block content_title %}Media library{% endblock %}
 
 {% block main %}
-    <div class="l-media-list is-load"></div>
-{% endblock %}
-
-{% block page_actions %}
-    <a class="actionUploadNewMedia btn btn-primary" href="{{ ea_url().setRoute('looly_media_upload') }}">
-        <span class="action-label">Upload</span>
-    </a>
+    <div class="lm-library lm-field" data-type="library" data-page="2" data-limit="24">
+        <div class="lm-library__wrapper">
+            <div class="lm-library__panel">
+                <button class=" btn btn-primary lm-action--modal_upload">Upload file</button>
+            </div>
+            <div class="lm-library__items lm-field__items">
+                {% for media in medias %}
+                    <div class="lm-card-media">
+                        <input class="lm-card-media__checkbox" type="checkbox" id="{{ media.slug }}" name="picture" value="{{ media.id }}" checked disabled>
+                        <label for="{{ media.slug }}" class="lm-card-media__label">
+                            <button class="lm-card-media__remove"></button>
+                            <img src="{{ media.getThumbnail() }}" class="lm-item__image">
+                        </label>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="lm-library__footer">
+                <button type="button" class="btn lm-gallery__action lm-library__action--load_more">Load more</button>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 
 {% block body %}
@@ -22,10 +37,4 @@
 {% block head_stylesheets %}
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset('bundles/loolymedia/css/manager.css') }}" type="text/css">
-{% endblock %}
-
-{# scripts #}
-{% block body_javascript %}
-    {{ parent() }}
-    <script src="{{ asset('bundles/loolymedia/js/media-bundle.js') }}"></script>
 {% endblock %}
