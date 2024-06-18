@@ -1,0 +1,25 @@
+.lm-library {
+
+    .lm-library__panel {
+        margin-bottom: 12px;
+    }
+
+    .lm-library__items {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 12px;
+        position: relative;
+    }
+
+    .lm-library__footer {
+        text-align: center;
+        margin-top: 12px;
+        padding: 12px;
+    }
+
+    .lm-card-media {
+        .lm-card-media__label {
+            box-shadow: none!important;
+        }
+    }
+}

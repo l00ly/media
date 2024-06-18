@@ -6,7 +6,7 @@ class ListFilter
 {
     public function __construct(
         private int $limit,
-        private int $page,
+        private int $page = 1,
         private array $excludeIds = []
     ) {
     }

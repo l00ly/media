@@ -1,14 +1,9 @@
-export const variables = {
-    path: '/bundle/looly/media-bundle',
-    add: '/bundle/looly/media-bundle/add',
-    remove: '/bundle/looly/media-bundle/remove'
-}
-
 /**
  * Variables for API
  */
 export const _API = {
     list: '/bundle/looly/media-bundle/list',
+    add: '/bundle/looly/media-bundle/add',
     remove: '/bundle/looly/media-bundle/remove',
 }
 
@@ -50,13 +45,38 @@ export const _MEDIA = {
     }
 }
 
+export const _LIBRARY = {
+    list: 'lm-library',
+    actions: {
+        upload: '',
+        load_more: 'lm-library__action--load_more'
+    }
+}
+
 /**
  * Variables for library modal
  */
-export const _LIBRARY = {
+export const _MODAL_LIBRARY = {
     list: 'lm-gallery',
     actions: {
         select: 'lm-gallery__action--select',
-        load_more: 'lm-gallery__action--load_more'
+        load_more: 'lm-gallery__action--load_more',
+    }
+}
+
+/**
+ * Variables for library modal
+ */
+export const _MODAL_DELETE = {
+    actions: {
+        cancel: 'lm-modal-delete--cancel',
+        delete: 'lm-modal-delete--delete',
+    }
+}
+
+export const _UPLOAD = {
+    file: 'lm-file_upload',
+    actions: {
+        modal_upload: 'lm-action--modal_upload'
     }
 }

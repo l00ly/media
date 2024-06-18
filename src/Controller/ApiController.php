@@ -40,30 +40,22 @@ class ApiController extends AbstractController
         ]);
     }
 
-    #[Route('/fetch-list', name: 'fetch_list')]
-    public function index(Request $request): JsonResponse
+    #[Route('/remove', name: 'remove')]
+    public function remove(Request $request): JsonResponse
     {
-        $content = json_decode($request->getContent());
-        $medias = $this->mediaService->list($content->limit, $content->offset);
+        $id = $request->query->get('id');
+
+        if (!$id) {
+            return $this->json([
+                'status' => 'error',
+                'message' => 'Media ID is required'
+            ]);
+        }
+
+        $this->mediaService->remove($id, true);
 
         return $this->json([
-            'meta' => [
-                'limit' => $content->limit,
-                'offset' => $content->offset + $content->limit,
-                'total' => $this->mediaService->countList()
-            ],
-            'body' => $medias
-        ]);
-    }
-
-    #[Route('/get_one', name: 'get_one')]
-    public function getOne(Request $request): JsonResponse
-    {
-        $content = json_decode($request->getContent());
-        $media = $this->mediaService->findOneById((int) $content->id);
-
-        return $this->json([
-            'body' => $media
+            'status' => 'success'
         ]);
     }
 
@@ -92,25 +84,6 @@ class ApiController extends AbstractController
 
         return $this->json([
             'data' => $medias
-        ]);
-    }
-
-    #[Route('/remove', name: 'remove')]
-    public function remove(Request $request): JsonResponse
-    {
-        $content = json_decode($request->getContent());
-
-        if (!isset($content->id)) {
-            return $this->json([
-                'status' => 'error',
-                'message' => 'Media ID is required'
-            ]);
-        }
-
-        $this->mediaService->remove($content->id, true);
-
-        return $this->json([
-            'status' => 'success'
         ]);
     }
 }

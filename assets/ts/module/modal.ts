@@ -2,7 +2,7 @@ import * as basicLightbox from 'basiclightbox';
 import {modalLibrary} from '../template/modal-library';
 import {card} from "../template/card";
 import {handlerList} from "../handler/api/list";
-import {_CARD, _GALLERY, _LIBRARY, _MEDIA} from "../options/variables";
+import {_CARD, _GALLERY, _MODAL_LIBRARY, _MEDIA} from "../options/variables";
 
 let excludeIds : number[] = [];
 let field: HTMLElement;
@@ -52,9 +52,9 @@ export function handlerOpenModalLibrary(fieldHandler: HTMLElement, ids : number[
 document.addEventListener('click', (event) => {
     const target = event.target as Element;
 
-    const elList = <HTMLElement> target.closest('.' + _LIBRARY.list);
-    const btnSelect = target.closest('.' + _LIBRARY.actions.select) as HTMLButtonElement;
-    const btnLoadMore = target.closest('.' + _LIBRARY.actions.load_more) as HTMLButtonElement;
+    const elList = <HTMLElement> target.closest('.' + _MODAL_LIBRARY.list);
+    const btnSelect = target.closest('.' + _MODAL_LIBRARY.actions.select) as HTMLButtonElement;
+    const btnLoadMore = target.closest('.' + _MODAL_LIBRARY.actions.load_more) as HTMLButtonElement;
     const elCard = target.closest('.' + _CARD.card);
 
     if(!elList) {

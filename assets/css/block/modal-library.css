@@ -1,5 +1,18 @@
 .lm-modal {
 
+    .lm-modal__header {
+        padding: 12px;
+        background: var(--tertiary-bg);
+        border-bottom: 1px solid #e5e5e5;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .lm-modal__title {
+            margin-bottom: 0;
+        }
+    }
+
 }
 
 .lm-modal-library {
@@ -10,32 +23,6 @@
     position: relative;
     display: flex;
     flex-direction: column;
-
-    .lm-modal__header {
-        padding: 12px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: var(--tertiary-bg);
-        border-bottom: 1px solid #e5e5e5;
-
-        .lm-modal__title {
-            margin-bottom: 0;
-        }
-
-        .lm-modal__close {
-            border: 0;
-            padding: 0;
-            background: transparent;
-            font-size: 24px;
-            line-height: 1;
-            height: 24px;
-            width: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-    }
 
     .lm-modal__body {
         height: 100%;

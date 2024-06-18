@@ -42,7 +42,7 @@ class MediaExtension extends AbstractExtension
             }
         }
 
-        return $this->twig->render('@looly_media/looly_media.html.twig', [
+        return $this->twig->render('@looly_media/extension/picture.html.twig', [
             'media' => $media,
             'variations' => $mediaVariations
         ]);

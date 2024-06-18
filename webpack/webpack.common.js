@@ -3,9 +3,9 @@ const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const path = require('path');
 
 module.exports = {
-    entry: './assets/ts/media-bundle.ts',
+    entry: './assets/ts/looly-media-bundle.ts',
     output: {
-        filename: 'js/media-bundle.js',
+        filename: 'js/looly-media-bundle.js',
         path: path.resolve(__dirname, '../Resources/public'),
         library: {
             name: 'MediaBundle',
@@ -41,7 +41,7 @@ module.exports = {
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: 'css/manager.css',
+            filename: 'css/looly-media-bundle.css',
         }),
     ]
 };
