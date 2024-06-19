@@ -9,13 +9,13 @@
                 </div>
             </div>
 
-            {% if form.vars.value|length == 0 %}
-                <div class="lm-gallery__notification">
-                    <i class="fa-solid fa-info-circle"></i>
-                    <span>Click the button to add images</span>
-                </div>
-            {% else %}
-                <div class="lm-gallery__items">
+            <div class="lm-gallery__items">
+                {% if form.vars.value|length == 0 %}
+                    <div class="lm-gallery__notification">
+                        <i class="fa-solid fa-info-circle"></i>
+                        <span>Click the button to add images</span>
+                    </div>
+                {% else %}
                     {% for media in form.vars.data %}
                         <div class="lm-card-media">
                             <input class="lm-card-media__checkbox" type="checkbox" id="{{ media.slug }}" name="{{ form.vars.full_name }}" value="{{ media.id }}" checked>
@@ -25,8 +25,8 @@
                             </label>
                         </div>
                     {% endfor %}
-                </div>
-            {% endif %}
+                {% endif %}
+            </div>
         </div>
     </div>
 {% endblock %}
