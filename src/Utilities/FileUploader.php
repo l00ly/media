@@ -43,11 +43,10 @@ class FileUploader implements FileUploaderInterface
         list($width, $height) = getimagesize($imagePath);
         $image = imagecreatefromstring(file_get_contents($imagePath));
 
-        // Размеры для мобильных устройств, планшетов и десктопов
         $sizes = [
-            'mobile' => 320,
-            'tablet' => 768,
-            'desktop' => 1024,
+            'mobile' => 640,
+            'tablet' => 1280,
+            'desktop' => 1920,
         ];
 
         foreach ($sizes as $device => $newWidth) {
