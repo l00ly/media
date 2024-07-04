@@ -112,7 +112,7 @@ document.addEventListener('click', (event) => {
                 preview.innerHTML = getSelectedCards().map((item) => {
                     const img = item.querySelector('img');
                     if(!img || !img.getAttribute('src')) return;
-                    return '<img src="' + img.getAttribute('src') + '" class="lm-media__image">';
+                    return '<img src="/' + img.getAttribute('src') + '" class="lm-media__image">';
                 }).join('');
                 field.classList.add('is-active');
             }
