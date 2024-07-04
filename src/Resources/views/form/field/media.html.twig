@@ -4,7 +4,7 @@
         <div class="lm-media__wrapper">
             <div class="lm-media__preview">
                 {% if(form.vars.data) %}
-                    <img src="{{ form.vars.data.getThumbnail() }}" class="lm-media__image">
+                    <img src="/{{ form.vars.data.getThumbnail() }}" class="lm-media__image">
                 {% endif %}
             </div>
 
