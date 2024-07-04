@@ -13,7 +13,7 @@ export const card = (data: Data) => {
             <input class="lm-card-media__checkbox" type="checkbox" id="${data.slug}" name="__" value="${data.id}">
             <label for="${data.slug}" class="lm-card-media__label">
                  <button class="lm-card-media__remove"></button>
-                 <img src="${data.thumbnail}" class="lm-item__image">
+                 <img src="/${data.thumbnail}" class="lm-item__image">
             </label>
         </div>
     `;
