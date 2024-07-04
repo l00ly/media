@@ -15,7 +15,7 @@
                         <input class="lm-card-media__checkbox" type="checkbox" id="{{ media.slug }}" name="picture" value="{{ media.id }}" checked disabled>
                         <label for="{{ media.slug }}" class="lm-card-media__label">
                             <button class="lm-card-media__remove"></button>
-                            <img src="{{ media.getThumbnail() }}" class="lm-item__image">
+                            <img src="/{{ media.getThumbnail() }}" class="lm-item__image">
                         </label>
                     </div>
                 {% endfor %}
