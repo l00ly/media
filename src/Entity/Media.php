@@ -183,10 +183,10 @@ class Media
     {
         $file_path = $this->getFolder() . $this->getSlug() . '_mobile.webp';
 
-        if(file_exists('/app/web/public/'.$file_path)) {
+        if(file_exists($_SERVER['DOCUMENT_ROOT'].'/'.$file_path)) {
             return $file_path;
         }
 
-        return '/' . $this->getFolder() . $this->getName();
+        return $this->getFolder() . $this->getName();
     }
 }
